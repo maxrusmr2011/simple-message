@@ -1,0 +1,31 @@
+.head {
+  padding: 10px;
+  background: #dddddd;
+  font-size: 1.5rem;
+
+  &__site {
+    color: blue;
+  }
+}
+.messages {
+  padding: 10px;
+
+  .message {
+    padding: 5px;
+    margin-bottom: 5px;
+    background: #f8f1de;
+
+    &__from {
+      font-size: 0.8rem;
+
+      &_site {
+        color: green;
+      }
+    }
+
+    &__text {
+      color: red;
+      font-weight: 700;
+    }
+  }
+}

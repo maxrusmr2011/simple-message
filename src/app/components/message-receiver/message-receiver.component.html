@@ -1,7 +1,17 @@
-<p>message-receiver works!</p>
-
-<div>
+<div class="head">
   Current site:
-  <span id="site"></span>
+  <span class="head__site">{{currentSite}} </span>
 </div>
-<ul id="messages"></ul>
+<div class="messages">
+  <div *ngFor="let oneMessage of messageList" class="message">
+    <div class="message__from">
+      Message from:
+      <span class="message__from_site">
+        {{oneMessage.from}}
+      </span>
+    </div>
+    <div class="message__text">
+      {{oneMessage.message}}
+    </div>
+  </div>
+</div>
