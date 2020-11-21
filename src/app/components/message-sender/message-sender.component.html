@@ -1,0 +1,7 @@
+<div class="main">
+  <mat-form-field appearance="outline" class="main__input">
+    <mat-label>Input site</mat-label>
+    <input matInput placeholder="http://..." #inputSite (keyup)="checkSiteText()">
+  </mat-form-field>
+  <button mat-raised-button color="primary" [disabled]="!isValueSite" (click)="getTextSite()">Open site</button>
+</div>
