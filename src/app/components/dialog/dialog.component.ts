@@ -21,7 +21,7 @@ export class DialogComponent implements AfterViewInit {
   }
 
   startHello(): void {
-    this.frameDialog.nativeElement.contentWindow.postMessage({ message: 'Hello word!' }, '*');
+    this.frameDialog.nativeElement.contentWindow.postMessage('Hello world!', '*');
   }
 
   checkMessageText(): void {
@@ -30,6 +30,6 @@ export class DialogComponent implements AfterViewInit {
 
   sendMessage(): void {
     const message = this.inputMessage.nativeElement.value;
-    this.frameDialog.nativeElement.contentWindow.postMessage({ message }, '*');
+    this.frameDialog.nativeElement.contentWindow.postMessage(message, '*');
   }
 }

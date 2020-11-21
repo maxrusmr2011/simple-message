@@ -16,10 +16,10 @@ export class MessageReceiverComponent implements OnInit {
   constructor() {
     window.onmessage = (e) => {
       this.messageList.push({
-        message: e.data.message,
+        message: e.data,
         from: e.origin,
       });
-    }
+    };
   }
 
   ngOnInit(): void {
