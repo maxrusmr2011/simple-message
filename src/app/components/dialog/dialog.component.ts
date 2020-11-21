@@ -1,15 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, Inject, ViewChild, AfterViewInit } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
+interface DialogData {
+  site: string;
+  win: any;
+}
 @Component({
-  selector: 'app-dialog',
+  selector: 'message-window-dialog',
   templateUrl: './dialog.component.html',
-  styleUrls: ['./dialog.component.scss']
 })
-export class DialogComponent implements OnInit {
+export class DialogComponent implements AfterViewInit {
+  @ViewChild('inputMessage') public inputMessage: ElementRef;
+  @ViewChild('frameDialog') public frameDialog: ElementRef;
+  isValueMessage: boolean;
 
-  constructor() { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) { }
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
+    this.frameDialog.nativeElement.src = this.data.site;
   }
 
+  startHello(): void {
+    this.frameDialog.nativeElement.contentWindow.postMessage({ message: 'Hello word!' }, '*');
+  }
+
+  checkMessageText(): void {
+    this.isValueMessage = !!this.inputMessage.nativeElement.value;
+  }
+
+  sendMessage(): void {
+    const message = this.inputMessage.nativeElement.value;
+    this.frameDialog.nativeElement.contentWindow.postMessage({ message }, '*');
+  }
 }

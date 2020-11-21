@@ -1,7 +1,7 @@
 .head {
   padding: 10px;
   background: #dddddd;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 
   &__site {
     color: blue;
@@ -13,10 +13,11 @@
   .message {
     padding: 5px;
     margin-bottom: 5px;
+    border-radius: 5px;
     background: #f8f1de;
 
     &__from {
-      font-size: 0.8rem;
+      font-size: 0.5rem;
 
       &_site {
         color: green;

@@ -1,11 +1,7 @@
-<p>message-sender works!</p>
-
-Site:
-<input id="site">
-<button onclick="frame.src=document.getElementById('site').value">Open</button><br>
-Message:
-<input id="message">
-<button onclick="frame.contentWindow.postMessage({ message: document.getElementById('message').value }, frame.src) ">Send</button>
-<div>
-  <iframe id="frame" width="500" height="300"></iframe>
+<div class="main">
+  <mat-form-field appearance="outline" class="main__input">
+    <mat-label>Input site</mat-label>
+    <input matInput placeholder="http://..." #inputSite (keyup)="checkSiteText()">
+  </mat-form-field>
+  <button mat-raised-button color="primary" [disabled]="!isValueSite" (click)="getTextSite()">Open site</button>
 </div>
